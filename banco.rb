@@ -9,29 +9,19 @@ def depositar(valor)
     return
   end
 
-  # Adiciona o valor do depósito ao saldo
   $saldo += valor
-  # Adiciona a transação ao histórico
   $historico << "Depósito de R$#{'%.2f' % valor}"
   puts "Depósito realizado com sucesso!"
 end
 
 # Função para realizar saques:
 def sacar(valor)
-  if valor <= 0
-    puts "Valor inválido para saque!"
+  if valor <= 0 || ($saldo < valor)
+    puts "Operação inválida! Verifique o valor e seu saldo."
     return
   end
 
-  # Verifica se há saldo suficiente para realizar o saque
-  if $saldo < valor
-    puts "Saldo insuficiente para saque!"
-    return
-  end
-
-  # Subtrai o valor do saque do saldo
   $saldo -= valor
-  # Adiciona a transação ao histórico
   $historico << "Saque de R$#{'%.2f' % valor}"
   puts "Saque realizado com sucesso!"
 end
