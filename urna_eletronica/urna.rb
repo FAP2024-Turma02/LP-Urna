@@ -21,7 +21,7 @@ class UrnaEletronica
       return false
     elsif @candidatos.key?(candidato)
       salvar_voto(cpf, candidato)
-      @eleitores << cpf unless candidato == "-0"  # Não adiciona eleitores em caso de voto nulo
+      @eleitores << cpf unless candidato == "0"  # Não adiciona eleitores em caso de voto nulo
       puts "Voto registrado para #{@candidatos[candidato]}."
       return true
     else
